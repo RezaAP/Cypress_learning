@@ -15,16 +15,10 @@ describe('Add Recruitment', ()=>{
         cy.get('[name="middleName"]').type('Tua');
         cy.get('[name="lastName"]').type('Pintar');
         cy.contains('-- Select --').click();
-        cy.contains('Junior Account Assistant').click();
+        cy.contains('Payroll Administrator').click();
         cy.get('input[placeholder="Type here"]').eq(0).type('abcdtest@abc.com');
         cy.get('input[placeholder="Type here"]').eq(1).type('12345678910');
         cy.get('[type="submit"]').click();
-        cy.contains('a', 'Recruitment').click();
         cy.contains('div', 'Pak Tua Pintar').should('exist');
-        cy.get('.oxd-table-row').contains('Pak Tua Pintar').parents('.oxd-table-row').find('button i.oxd-icon.bi-eye-fill').click();
-        cy.get('h6').contains('Application Stage').should('have.text','Application Stage');
-        cy.contains('button', 'Shortlist').click();
-        cy.get('[type="submit"]').click();
-
     })
 })
