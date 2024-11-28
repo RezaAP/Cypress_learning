@@ -27,4 +27,13 @@ describe('Login feature', ()=>{
 
         loginPage.dashboardPage().should('have.text','Dashboard');
     })
+
+    it('User Login with invalid username', ()=>{
+        cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
+        loginPage.verifyLoginPage().should('have.text','Login');
+        loginPage.inputUsername().type('Admin123');
+        loginPage.inputPassword().type('admin123');
+        loginPage.buttonLogin().click();
+        //error message
+    })
 })
