@@ -1,12 +1,12 @@
 /// <reference types="cypress" />
-
+import loginPage from "../../POM/Login/login.cy";
 describe('Login feature', ()=>{
     it('User Login with valid credentials', () =>{
 
         cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login');
-        //cy.get('h5').contains('Login').should('have.text','Login');
-        cy.get('[name="username"]').type('Admin');
-        cy.get('[name="password"]').type('admin123');
+        loginPage.verifyLoginPage().should('have.text','Login');
+        loginPage.inputUsername().type('Admin');
+        loginPage.inputPassword().type('admin123');
         
         //action summary (bisa)
         //cy.intercept('GET', '**/action-summary').as('actionSummary');
@@ -17,14 +17,14 @@ describe('Login feature', ()=>{
         //shortcuts (bisa)
         //cy.intercept('GET', '**/shortcuts').as('shortcuts');
 
-        //id (bisa)
-        cy.intercept('GET', '**/locations').as('locations');
+        //locations (bisa)
+        //cy.intercept('GET', '**/locations').as('locations');
 
-        cy.get('[type="submit"]').click();
+        loginPage.buttonLogin().click();
 
         //ganti @berdasarkan kebutuhan
-        cy.wait('@locations');
+        //cy.wait('@locations');
 
-        cy.get('h6').contains('Dashboard').should('have.text','Dashboard');
+        loginPage.dashboardPage().should('have.text','Dashboard');
     })
 })
