@@ -26,4 +26,8 @@ export default class halamanLogin{
     static invalidCredential(){
         return cy.get('p').contains('Invalid credentials').should('be.visible');
     }
+
+    static required(){
+        return cy.get('[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]').contains('Required').should('be.visible');
+    }
 }

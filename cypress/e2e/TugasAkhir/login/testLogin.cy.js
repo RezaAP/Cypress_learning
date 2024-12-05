@@ -36,4 +36,21 @@ describe ('Fitur Login', ()=>{
         halamanLogin.invalidCredential();
     });
 
+    it('Required (Klik login tanpa mengisi username dan password)', () => {
+        halamanLogin.klikLogin().click();
+        halamanLogin.required();
+    });
+
+    it('Required (Klik login tanpa mengisi username)', () => {
+        halamanLogin.ketikPass().type('admin123');
+        halamanLogin.klikLogin().click();
+        halamanLogin.required();
+    });
+
+    it('Required (Klik login tanpa mengisi password)', () => {
+        halamanLogin.ketikUsername().type('Admin');
+        halamanLogin.klikLogin().click();
+        halamanLogin.required();
+    });
+
 })

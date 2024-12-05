@@ -47,7 +47,12 @@ export default class directorySearch{
         return cy.get('[type="submit"]').click();
     }
 
+    static invalidNamaEmployee(){
+        return cy.get('[class="oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message"]').contains('Invalid').should("be.visible");
+    }
+
     static gambarPeter(){
         return cy.get('[src="/web/index.php/pim/viewPhoto/empNumber/3"]').should("be.visible");
     }
+    
 }

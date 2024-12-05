@@ -30,4 +30,12 @@ describe('Fitur Search Directory',()=>{
         searchDir.klikSearch();
         searchDir.gambarPeter();
     })
+
+    it('Invalid Nama Employee', () => {
+        searchDir.klikDirectory().click();
+        searchDir.masukkanNamaEmployee().type('Samsul');
+        cy.wait(3000);
+        cy.get('div[role="listbox"]').first().click();
+        searchDir.invalidNamaEmployee();
+    });
 })
